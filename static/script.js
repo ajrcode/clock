@@ -5,6 +5,7 @@ const resetBtn = document.getElementById('resetBtn');
 
 let timer;
 let seconds = 0;
+let isTimerRunning = false;
 
 function updateDisplay() {
     const hours = Math.floor(seconds / 3600);
@@ -15,19 +16,24 @@ function updateDisplay() {
 }
 
 function startTimer() {
-    timer = setInterval(() => {
-        seconds++;
-        updateDisplay();
-    }, 1000);
+    if (!isTimerRunning) {
+        timer = setInterval(() => {
+            seconds++;
+            updateDisplay();
+        }, 1000);
+        isTimerRunning = true;
+    }
 }
 
 function stopTimer() {
     clearInterval(timer);
+    isTimerRunning = false;
 }
 
 function resetTimer() {
     seconds = 0;
     updateDisplay();
+    stopTimer();
 }
 
 startBtn.addEventListener('click', startTimer);

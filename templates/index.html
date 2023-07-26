@@ -2,19 +2,21 @@
 <html>
 <head>
     <title>Online Timer</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="timer">
-        <h1 id="display">00:00:00</h1>
-    </div>
-    <div class="controls">
-        <button id="startBtn">Start</button>
-        <button id="stopBtn">Stop</button>
-        <button id="resetBtn">Reset</button>
+    <div class="container">
+        <div class="timer">
+            <h1 id="display">00:00:00</h1>
+        </div>
+        <div class="controls">
+            <button id="startBtn">Start</button>
+            <button id="stopBtn">Stop</button>
+            <button id="resetBtn">Reset</button>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
 
